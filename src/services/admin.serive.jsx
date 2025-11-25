@@ -151,6 +151,24 @@ export const getRolesList = async () => {
     }
   };
 
+   export const submitUserManagerAdd = async (userManagerDto) => {
+    try {
+      console.log("-----",userManagerDto)
+      const response = await axios.post(
+        `${API_URL}user-manager-add-submit`,
+        userManagerDto,
+        { headers: authHeader() }
+      );
+      return response.data;
+    } catch (error) {
+      console.error('Error occurred in submitUserManagerEdit:', error);
+      throw error;
+    }
+  };
+
+
+
+
   export const usernameDuplicateCheckInAdd = async (username) => {
     try {
       if (!username) throw new Error('No user found');
